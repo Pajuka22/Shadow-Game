@@ -1,0 +1,15 @@
+﻿  Creating makefile for ShadowGameEditor (ini files are newer than makefile)
+  Parsing headers for ShadowGameEditor
+    Running UnrealHeaderTool "C:\Users\nebul\Documents\Unreal Projects\ShadowGame\ShadowGame.uproject" "C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Intermediate\Build\Win64\ShadowGameEditor\Development\ShadowGameEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -installed
+  Reflection code generated for ShadowGameEditor in 6.926532 seconds
+  Deleted hot-reload file: C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Binaries\Win64\UE4Editor-ShadowGame-0001.dll
+  Deleted hot-reload file: C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Intermediate\Build\Win64\UE4Editor\Development\ShadowGame\UE4Editor-ShadowGame-0001.lib
+  Using Visual Studio 2019 14.20.27508 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.20.27508) and Windows 10.0.17763.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  Building 3 actions with 8 processes...
+    [1/3] UE4Editor-ShadowGame.lib
+       Creating library C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Intermediate\Build\Win64\UE4Editor\Development\ShadowGame\UE4Editor-ShadowGame.lib and object C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Intermediate\Build\Win64\UE4Editor\Development\ShadowGame\UE4Editor-ShadowGame.exp
+    [2/3] UE4Editor-ShadowGame.dll
+       Creating library C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Intermediate\Build\Win64\UE4Editor\Development\ShadowGame\UE4Editor-ShadowGame.suppressed.lib and object C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Intermediate\Build\Win64\UE4Editor\Development\ShadowGame\UE4Editor-ShadowGame.suppressed.exp
+    [3/3] ShadowGameEditor.target
+  Total time in Parallel executor: 1.47 seconds
+  Total execution time: 10.41 seconds

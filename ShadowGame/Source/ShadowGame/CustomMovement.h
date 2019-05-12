@@ -1,0 +1,25 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/PawnMovementComponent.h"
+#include "CustomMovement.generated.h"
+
+/**
+ * 
+ */
+UCLASS()
+class SHADOWGAME_API UCustomMovement : public UPawnMovementComponent
+{
+	GENERATED_BODY()
+		UPROPERTY(EditAnywhere)
+		float WalkSpeed;
+		
+		UPROPERTY(EditAnywhere)
+		float RunSpeed;
+public:
+	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	bool Running;
+
+};

@@ -1,0 +1,3 @@
+C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Source\ShadowGame\ShadowGame.Build.cs
+C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Source\ShadowGame.Target.cs
+C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Source\ShadowGameEditor.Target.cs

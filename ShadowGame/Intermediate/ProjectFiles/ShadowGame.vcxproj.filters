@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\ShadowGame.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{86E78610-6D19-44D7-B7A3-6A431574AC93}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\ShadowGame.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\ShadowGameEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{2DFDFABB-2896-4D35-9D9B-B640C08F19B7}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\ShadowGame">
+      <UniqueIdentifier>{7FD63000-3C52-47AE-BD1A-551185D49BE9}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\ShadowGame\ShadowGame.Build.cs">
+      <Filter>Source\ShadowGame</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\ShadowGame\ShadowGame.cpp">
+      <Filter>Source\ShadowGame</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ShadowGame\ShadowGame.h">
+      <Filter>Source\ShadowGame</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ShadowGame\ShadowGameCharacter.cpp">
+      <Filter>Source\ShadowGame</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ShadowGame\ShadowGameCharacter.h">
+      <Filter>Source\ShadowGame</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ShadowGame\ShadowGameGameMode.cpp">
+      <Filter>Source\ShadowGame</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ShadowGame\ShadowGameGameMode.h">
+      <Filter>Source\ShadowGame</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ShadowGame\ShadowGameHUD.cpp">
+      <Filter>Source\ShadowGame</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ShadowGame\ShadowGameHUD.h">
+      <Filter>Source\ShadowGame</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ShadowGame\ShadowGameProjectile.cpp">
+      <Filter>Source\ShadowGame</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ShadowGame\ShadowGameProjectile.h">
+      <Filter>Source\ShadowGame</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\ShadowGame\MyPawn.h">
+      <Filter>Source\ShadowGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ShadowGame\CustomCharMove.h">
+      <Filter>Source\ShadowGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ShadowGame\CustomMovement.h">
+      <Filter>Source\ShadowGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ShadowGame\ControlledAttempt.h">
+      <Filter>Source\ShadowGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ShadowGame\CollidingPawn.h">
+      <Filter>Source\ShadowGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ShadowGame\CollidingPawnMovementComponent.h">
+      <Filter>Source\ShadowGame</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\ShadowGame\MyPawn.cpp">
+      <Filter>Source\ShadowGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ShadowGame\CustomCharMove.cpp">
+      <Filter>Source\ShadowGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ShadowGame\CustomMovement.cpp">
+      <Filter>Source\ShadowGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ShadowGame\ControlledAttempt.cpp">
+      <Filter>Source\ShadowGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ShadowGame\CollidingPawn.cpp">
+      <Filter>Source\ShadowGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ShadowGame\CollidingPawnMovementComponent.cpp">
+      <Filter>Source\ShadowGame</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
