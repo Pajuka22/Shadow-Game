@@ -1,11 +1,11 @@
-C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Intermediate\Build\Win64\UE4Editor\Development\ShadowGame\Definitions.ShadowGame.h
-C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Source\ShadowGame\ShadowGameHUD.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Development\ShadowGame\Definitions.ShadowGame.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\ShadowGameHUD.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\GameFramework/HUD.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\GameFramework/HUDHitBox.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\GameFramework/DebugTextInfo.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DebugTextInfo.generated.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\HUD.generated.h
-C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Intermediate\Build\Win64\UE4Editor\Inc\ShadowGame\ShadowGameHUD.generated.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Inc\ShadowGame\ShadowGameHUD.generated.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\Engine/Canvas.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Public\CanvasItem.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\Engine/Font.h

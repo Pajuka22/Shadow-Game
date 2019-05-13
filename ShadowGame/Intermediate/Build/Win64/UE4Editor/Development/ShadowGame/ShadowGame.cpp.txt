@@ -1,2 +1,2 @@
-C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Intermediate\Build\Win64\UE4Editor\Development\ShadowGame\Definitions.ShadowGame.h
-C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Source\ShadowGame\ShadowGame.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Development\ShadowGame\Definitions.ShadowGame.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\ShadowGame.h

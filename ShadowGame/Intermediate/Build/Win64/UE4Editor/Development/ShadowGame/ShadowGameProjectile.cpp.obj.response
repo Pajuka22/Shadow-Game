@@ -426,9 +426,9 @@
 /I ThirdParty
 /I ThirdParty\libSampleRate\Public
 /I ThirdParty\libSampleRate
-/I "C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Intermediate\Build\Win64\UE4Editor\Inc\ShadowGame"
-/I "C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Source"
-/I "C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Source\ShadowGame"
+/I C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Inc\ShadowGame
+/I C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source
+/I C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\AugmentedReality
 /I Runtime\AugmentedReality\Public
 /I Runtime\AugmentedReality
@@ -438,12 +438,12 @@
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt"
-/FI"C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Intermediate\Build\Win64\ShadowGameEditor\Development\Engine\SharedPCH.Engine.h"
-/Yu"C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Intermediate\Build\Win64\ShadowGameEditor\Development\Engine\SharedPCH.Engine.h"
-/Fp"C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Intermediate\Build\Win64\ShadowGameEditor\Development\Engine\SharedPCH.Engine.h.pch"
-"C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Source\ShadowGame\ShadowGameProjectile.cpp"
-/FI"C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Intermediate\Build\Win64\UE4Editor\Development\ShadowGame\Definitions.ShadowGame.h"
-/Fo"C:\Users\nebul\Documents\Unreal Projects\ShadowGame\Intermediate\Build\Win64\UE4Editor\Development\ShadowGame\ShadowGameProjectile.cpp.obj"
+/FI"C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\ShadowGameEditor\Development\Engine\SharedPCH.Engine.h"
+/Yu"C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\ShadowGameEditor\Development\Engine\SharedPCH.Engine.h"
+/Fp"C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\ShadowGameEditor\Development\Engine\SharedPCH.Engine.h.pch"
+"C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\ShadowGameProjectile.cpp"
+/FI"C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Development\ShadowGame\Definitions.ShadowGame.h"
+/Fo"C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Development\ShadowGame\ShadowGameProjectile.cpp.obj"
 /TP
 /GR-
 /W4

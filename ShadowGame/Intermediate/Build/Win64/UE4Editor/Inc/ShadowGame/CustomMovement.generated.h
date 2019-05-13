@@ -61,7 +61,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UCustomMovement); \
 
 #define ShadowGame_Source_ShadowGame_CustomMovement_h_15_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__WalkSpeed() { return STRUCT_OFFSET(UCustomMovement, WalkSpeed); } \
-	FORCEINLINE static uint32 __PPO__RunSpeed() { return STRUCT_OFFSET(UCustomMovement, RunSpeed); }
+	FORCEINLINE static uint32 __PPO__RunSpeed() { return STRUCT_OFFSET(UCustomMovement, RunSpeed); } \
+	FORCEINLINE static uint32 __PPO__maxAngle() { return STRUCT_OFFSET(UCustomMovement, maxAngle); }
 
 
 #define ShadowGame_Source_ShadowGame_CustomMovement_h_12_PROLOG

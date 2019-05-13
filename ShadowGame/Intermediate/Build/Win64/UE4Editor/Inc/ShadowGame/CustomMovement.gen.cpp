@@ -32,6 +32,10 @@ void EmptyLinkFunctionForGeneratedCodeCustomMovement() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_maxAngle_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_maxAngle;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RunSpeed_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_RunSpeed;
@@ -54,6 +58,13 @@ void EmptyLinkFunctionForGeneratedCodeCustomMovement() {}
 	};
 #endif
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCustomMovement_Statics::NewProp_maxAngle_MetaData[] = {
+		{ "Category", "CustomMovement" },
+		{ "ModuleRelativePath", "CustomMovement.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCustomMovement_Statics::NewProp_maxAngle = { "maxAngle", nullptr, (EPropertyFlags)0x0040000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCustomMovement, maxAngle), METADATA_PARAMS(Z_Construct_UClass_UCustomMovement_Statics::NewProp_maxAngle_MetaData, ARRAY_COUNT(Z_Construct_UClass_UCustomMovement_Statics::NewProp_maxAngle_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCustomMovement_Statics::NewProp_RunSpeed_MetaData[] = {
 		{ "Category", "CustomMovement" },
 		{ "ModuleRelativePath", "CustomMovement.h" },
@@ -68,6 +79,7 @@ void EmptyLinkFunctionForGeneratedCodeCustomMovement() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCustomMovement_Statics::NewProp_WalkSpeed = { "WalkSpeed", nullptr, (EPropertyFlags)0x0040000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCustomMovement, WalkSpeed), METADATA_PARAMS(Z_Construct_UClass_UCustomMovement_Statics::NewProp_WalkSpeed_MetaData, ARRAY_COUNT(Z_Construct_UClass_UCustomMovement_Statics::NewProp_WalkSpeed_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCustomMovement_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomMovement_Statics::NewProp_maxAngle,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomMovement_Statics::NewProp_RunSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomMovement_Statics::NewProp_WalkSpeed,
 	};
@@ -98,7 +110,7 @@ void EmptyLinkFunctionForGeneratedCodeCustomMovement() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UCustomMovement, 1307231866);
+	IMPLEMENT_CLASS(UCustomMovement, 3084726291);
 	template<> SHADOWGAME_API UClass* StaticClass<UCustomMovement>()
 	{
 		return UCustomMovement::StaticClass();

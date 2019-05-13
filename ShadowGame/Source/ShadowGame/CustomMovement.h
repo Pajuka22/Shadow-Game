@@ -18,8 +18,11 @@ class SHADOWGAME_API UCustomMovement : public UPawnMovementComponent
 		
 		UPROPERTY(EditAnywhere)
 		float RunSpeed;
+
+		UPROPERTY(EditAnywhere)
+		float maxAngle = 50;
 public:
 	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	bool Running;
-
+	FVector downVel;
 };
