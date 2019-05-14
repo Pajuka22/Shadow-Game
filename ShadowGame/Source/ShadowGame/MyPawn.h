@@ -36,6 +36,7 @@ public:
 	FVector CurrentVelocity;
 	float ForwardVel;
 	float RightVel;
+	float cameraRot;
 protected:
 	void MoveForward(float Val);
 	void MoveRight(float Val);

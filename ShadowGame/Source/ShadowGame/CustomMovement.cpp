@@ -16,7 +16,7 @@ void UCustomMovement::TickComponent(float DeltaTime, enum ELevelTick TickType, F
 	// Get (and then clear) the movement vector that we set in ACollidingPawn::Tick
 	FVector DesiredMovementThisFrame = ConsumeInputVector().GetClampedToMaxSize(1.0f) * DeltaTime * 300.0f;
 	downVel += UpdatedComponent->GetUpVector() * -300 * DeltaTime;
-	GEngine->AddOnScreenDebugMessage(-1, 0.2f, FColor::Green, FString::SanitizeFloat(downVel.Size()));
+	//GEngine->AddOnScreenDebugMessage(-1, 0.2f, FColor::Green, FString::SanitizeFloat(downVel.Size()));
 	FHitResult outHit;
 	FVector Start = GetActorLocation();
 	FVector End = GetActorLocation() + UpdatedComponent->GetUpVector() * -100;
@@ -29,7 +29,7 @@ void UCustomMovement::TickComponent(float DeltaTime, enum ELevelTick TickType, F
 	bool isHit = GetWorld()->LineTraceSingleByChannel(outHit, Start, End, ECC_Visibility, CollisionParams);
 	if (isHit && outHit.bBlockingHit) {
 		float angle = FMath::Acos(FVector::DotProduct(UpdatedComponent->GetUpVector(), outHit.ImpactNormal));
-		GEngine->AddOnScreenDebugMessage(-1, 0.2f, FColor::Yellow, FString::SanitizeFloat(angle * 180 / PI));
+		//GEngine->AddOnScreenDebugMessage(-1, 0.2f, FColor::Yellow, FString::SanitizeFloat(angle * 180 / PI));
 		downVel = FVector(0, 0, 0);
 	}
 	DesiredMovementThisFrame += downVel;

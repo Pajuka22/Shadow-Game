@@ -31,12 +31,12 @@ ACollidingPawn::ACollidingPawn()
 	OurParticleSystem->SetupAttachment(SphereVisual);
 	OurParticleSystem->bAutoActivate = false;
 	OurParticleSystem->SetRelativeLocation(FVector(-20.0f, 0.0f, 20.0f));
-	static ConstructorHelpers::FObjectFinder<UParticleSystem> ParticleAsset(TEXT("/Game/StarterContent/Particles/P_Fire.P_Fire"));
-	if (ParticleAsset.Succeeded())
+	//static ConstructorHelpers::FObjectFinder<UParticleSystem> ParticleAsset(TEXT("/Game/StarterContent/Particles/P_Fire.P_Fire"));
+	/*if (ParticleAsset.Succeeded())
 	{
 		OurParticleSystem->SetTemplate(ParticleAsset.Object);
 	}
-
+	*/
 	// Use a spring arm to give the camera smooth, natural-feeling motion.
 	USpringArmComponent* SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraAttachmentArm"));
 	SpringArm->SetupAttachment(RootComponent);

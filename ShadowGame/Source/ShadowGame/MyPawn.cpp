@@ -13,6 +13,7 @@
 #include "Runtime/Core/Public/Math/Vector.h"
 #include "Runtime/Engine/Public/DrawDebugHelpers.h"
 #include "CollidingPawnMovementComponent.h"
+#include "Runtime/Core/Public/Math/TransformNonVectorized.h"
 
 // Sets default values
 AMyPawn::AMyPawn()
@@ -43,6 +44,7 @@ AMyPawn::AMyPawn()
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
 	RootComponent->SetRelativeRotation(FRotator(10, 0, 0));
 	SetActorRotation(FRotator(0, 0, 0));
+	cameraRot = 0;
 }
 
 // Called when the game starts or when spawned
@@ -61,7 +63,46 @@ void AMyPawn::Tick(float DeltaTime)
 	}*/
 	MovementComp->Velocity = FVector();
 	SetActorRotation(GetActorRotation() + FRotator(0, 0, 0));
-	DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + 100 * RootComponent->GetUpVector(), FColor::Red, false, 5.f, 0, 1);
+	//DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + 100 * RootComponent->GetUpVector(), FColor::Red, false, 5.f, 0, 1);
+	FHitResult hitResultTrace;
+	FCollisionQueryParams queryParams;
+	FCollisionObjectQueryParams objQueryParams;
+
+	queryParams.AddIgnoredActor(this);
+
+	FVector under;
+	FVector Start = GetActorLocation();
+	FVector End = Start + GetVelocity();
+	FCollisionQueryParams CollisionParams;
+	if (GetWorld()->LineTraceSingleByChannel(hitResultTrace, Start + GetActorUpVector() * 400.0f, Start - GetActorUpVector() * 2000.0f,
+		ECC_Visibility, queryParams))
+	{
+		if (hitResultTrace.GetComponent() != nullptr) {
+			if (!hitResultTrace.GetActor()->IsRootComponentMovable()) {
+				under = hitResultTrace.ImpactPoint;
+				FVector newUp = hitResultTrace.ImpactNormal;
+				//FVector currentRightVect = RootComponent->GetRightVector();
+				FVector newForward = FVector::CrossProduct(RootComponent->GetRightVector(), newUp);
+				FVector newRight = FVector::CrossProduct(newUp, newForward);
+				//Build the new transform!
+				FTransform newTransform = FTransform(newForward, newRight, newUp, GetActorLocation());
+				//RootComponent->SetWorldRotation(newTransform.GetRotation());
+				RootComponent->SetWorldRotation(FMath::Lerp(RootComponent->GetComponentRotation().Quaternion(), newTransform.GetRotation(), .05));
+				//DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + 100 * GetActorUpVector(), FColor::Red, false, 5.f, 0, 1);
+			}
+		}
+		else {
+			under = hitResultTrace.ImpactPoint;
+			FVector newUp = FVector(0, 0, 1);
+			//FVector currentRightVect = RootComponent->GetRightVector();
+			FVector newForward = FVector::CrossProduct(RootComponent->GetRightVector(), newUp);
+			FVector newRight = FVector::CrossProduct(newUp, newForward);
+			//Build the new transform!
+			FTransform newTransform = FTransform(newForward, newRight, newUp, GetActorLocation());
+			//RootComponent->SetWorldRotation(newTransform.GetRotation());
+			RootComponent->SetWorldRotation(FMath::Lerp(RootComponent->GetComponentRotation().Quaternion(), newTransform.GetRotation(), .01));
+		}
+	}
 }
 
 // Called to bind functionality to input
@@ -95,7 +136,19 @@ void AMyPawn::TurnAtRate(float rate) {
 }
 void AMyPawn::LookUpAtRate(float rate) {
 	//MyCamera->SetRelativeRotation(MyCamera->RelativeRotation + FRotator(-rate, 0, 0));
-	FVector newUp = MyCamera->GetUpVector().RotateAngleAxis(5 * rate, MyCamera->GetRightVector());
-	FVector newForward = MyCamera->GetForwardVector().RotateAngleAxis(5 * rate, MyCamera->GetRightVector());
+	float addrot = 5 * rate;
+
+	if (FMath::Acos(FVector::DotProduct(MyCamera->GetForwardVector(), RootComponent->GetUpVector())) < FMath::Abs(5 * rate * PI / 180) && addrot < 0) {
+		addrot = FMath::Acos(FVector::DotProduct(MyCamera->GetForwardVector(), RootComponent->GetUpVector()));
+	}
+	if (FMath::Acos(FVector::DotProduct(MyCamera->GetForwardVector(), RootComponent->GetUpVector() * -1)) < FMath::Abs(5 * rate * PI / 180) && addrot > 0) {
+		addrot = FMath::Acos(FVector::DotProduct(MyCamera->GetForwardVector(), -RootComponent->GetUpVector()));
+	}
+	FVector newUp = MyCamera->GetUpVector().RotateAngleAxis(addrot, MyCamera->GetRightVector());
+	FVector newForward = MyCamera->GetForwardVector().RotateAngleAxis(addrot, MyCamera->GetRightVector());
 	MyCamera->SetWorldTransform(FTransform(newForward, MyCamera->GetRightVector(), newUp, MyCamera->GetComponentLocation()));
+	//end standard working
+
+	
+	//MyCamera->SetRelativeRotation(FRotator(FMath::ClampAngle(MyCamera->RelativeRotation.Pitch - 5 * rate, -90, 90), MyCamera->RelativeRotation.Yaw, MyCamera->RelativeRotation.Roll));
 }
