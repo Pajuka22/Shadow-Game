@@ -42,7 +42,7 @@ AMyPawn::AMyPawn()
 	RightVel = 0;
 
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
-	RootComponent->SetRelativeRotation(FRotator(10, 0, 0));
+	RootComponent->SetRelativeRotation(FRotator(0, 0, 0));
 	SetActorRotation(FRotator(0, 0, 0));
 	cameraRot = 0;
 }

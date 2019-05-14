@@ -2983,3 +2983,4 @@ LogConfig: Setting CVar [[r.setres:1280x720]]
 [2019.05.14-04.22.41:180][334]LogSlate: Window 'Source Control Login' being destroyed
 [2019.05.14-04.22.52:420][666]LogSlate: FSceneViewport::OnFocusLost() reason 0
 [2019.05.14-04.23.03:786][943]LogEditorViewport: Clicking on Actor (LMB): MyPawn (MyPawn12)
+[2019.05.14-04.23.22:742][194]LogEditorViewport: Clicking on Actor (LMB): MyPawn (MyPawn12)
