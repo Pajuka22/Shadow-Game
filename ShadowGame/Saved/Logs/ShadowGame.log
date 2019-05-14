@@ -2978,3 +2978,8 @@ LogConfig: Setting CVar [[r.setres:1280x720]]
 [2019.05.14-04.18.00:672][523]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
 [2019.05.14-04.18.00:675][523]LogUObjectHash: Compacting FUObjectHashTables data took   1.02ms
 [2019.05.14-04.18.00:719][526]LogPlayLevel: Display: Destroying online subsystem :Context_47
+[2019.05.14-04.22.25:147][472]LogSlate: FSceneViewport::OnFocusLost() reason 2
+[2019.05.14-04.22.26:632][649]LogSlate: FSceneViewport::OnFocusLost() reason 2
+[2019.05.14-04.22.41:180][334]LogSlate: Window 'Source Control Login' being destroyed
+[2019.05.14-04.22.52:420][666]LogSlate: FSceneViewport::OnFocusLost() reason 0
+[2019.05.14-04.23.03:786][943]LogEditorViewport: Clicking on Actor (LMB): MyPawn (MyPawn12)
