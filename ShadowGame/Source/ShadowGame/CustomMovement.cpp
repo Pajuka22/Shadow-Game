@@ -15,7 +15,7 @@ void UCustomMovement::TickComponent(float DeltaTime, enum ELevelTick TickType, F
 
 	// Get (and then clear) the movement vector that we set in ACollidingPawn::Tick
 	FVector DesiredMovementThisFrame = ConsumeInputVector().GetClampedToMaxSize(1.0f) * DeltaTime * 300.0f;
-	downVel += UpdatedComponent->GetUpVector() * -300 * DeltaTime;
+	downVel += UpdatedComponent->GetUpVector() * -30 * DeltaTime;
 	GEngine->AddOnScreenDebugMessage(-1, 0.2f, FColor::Green, FString::SanitizeFloat(DeltaTime));
 	FHitResult outHit;
 	FVector Start = GetActorLocation();
