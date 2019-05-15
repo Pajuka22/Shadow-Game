@@ -31,5 +31,3 @@ C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime/Engine/Classes/GameFramework/FloatingPawnMovement.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\FloatingPawnMovement.generated.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime/Engine/Public/DrawDebugHelpers.h
-C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\CollidingPawnMovementComponent.h
-C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Inc\ShadowGame\CollidingPawnMovementComponent.generated.h

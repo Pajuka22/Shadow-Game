@@ -37,9 +37,13 @@ public:
 	float ForwardVel;
 	float RightVel;
 	float cameraRot;
+	bool ShadowSneak;
 protected:
 	void MoveForward(float Val);
 	void MoveRight(float Val);
 	void TurnAtRate(float Rate);
 	void LookUpAtRate(float Rate);
+	void StartEndSneak();
+	void Jump();
+	void StopJumping();
 };

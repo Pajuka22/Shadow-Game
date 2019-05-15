@@ -284,9 +284,7 @@ void AShadowGameCharacter::TurnAtRate(float Rate)
 void AShadowGameCharacter::LookUpAtRate(float Rate)
 {
 	// calculate delta for this frame from the rate information
-	FVector newUp = FirstPersonCameraComponent->GetUpVector().RotateAngleAxis(5 * Rate, FirstPersonCameraComponent->GetRightVector());
-	FVector newForward = FirstPersonCameraComponent->GetForwardVector().RotateAngleAxis(5 * Rate, FirstPersonCameraComponent->GetRightVector());
-	FirstPersonCameraComponent->SetWorldTransform(FTransform(newForward, FirstPersonCameraComponent->GetRightVector(), newUp, FirstPersonCameraComponent->GetComponentLocation()));
+	AddControllerPitchInput(Rate);
 }
 
 bool AShadowGameCharacter::EnableTouchscreenMovement(class UInputComponent* PlayerInputComponent)
