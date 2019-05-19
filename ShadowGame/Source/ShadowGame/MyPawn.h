@@ -33,11 +33,39 @@ public:
 
 	class UCameraComponent* MyCamera;
 
+	UPROPERTY(EditAnywhere)
+		float SneakSpeed = 200;
+	UPROPERTY(EditAnywhere)
+		float CrouchSpeed = 150;
+	UPROPERTY(EditAnywhere)
+		float NormalSpeed = 300;
+	UPROPERTY(EditAnywhere)
+		float SprintSpeed = 600;
+	UPROPERTY(EditAnywhere)
+		float sneakHeight = 1;
+	UPROPERTY(EditAnywhere)
+		float crouchHeight = 50;
+	UPROPERTY(EditAnywhere)
+		float normalHeight = 100;
+	UPROPERTY(EditAnywhere)
+		float HeightInterpTime;
+	float startHeight;
+	float endHeight;
+	float currentHeight;
+	float addHeight;
+
 	FVector CurrentVelocity;
 	float ForwardVel;
 	float RightVel;
 	float cameraRot;
 	bool ShadowSneak;
+	bool Grounded;
+	bool Jumping;
+	bool EndJump;
+	bool bCrouch;
+	bool bSprint;
+	FVector LateralMovement = FVector(0, 0, 0);
+	
 protected:
 	void MoveForward(float Val);
 	void MoveRight(float Val);
@@ -46,4 +74,11 @@ protected:
 	void StartEndSneak();
 	void Jump();
 	void StopJumping();
+	bool CheckGrounded();
+	void Sprint();
+	void StopSprinting();
+	void CrouchControl();
+	void Crouch();
+	void StopCrouching();
+	void GetAddHeight();
 };

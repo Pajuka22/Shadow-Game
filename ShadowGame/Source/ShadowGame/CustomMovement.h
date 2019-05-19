@@ -25,5 +25,8 @@ public:
 	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	bool Running;
 	FVector downVel;
+	FVector JumpVel = FVector(0, 0, 0);
+	FVector LateralVel;
+	float MovementSpeed;
 	bool Shadow;
 };

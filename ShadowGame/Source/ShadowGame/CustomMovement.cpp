@@ -12,17 +12,18 @@ void UCustomMovement::TickComponent(float DeltaTime, enum ELevelTick TickType, F
 	{
 		return;
 	}
-
 	// Get (and then clear) the movement vector that we set in ACollidingPawn::Tick
-	FVector DesiredMovementThisFrame = ConsumeInputVector().GetClampedToMaxSize(1.0f) * DeltaTime * 300.0f;
-	downVel += UpdatedComponent->GetUpVector() * -30 * DeltaTime;
-	GEngine->AddOnScreenDebugMessage(-1, 0.2f, FColor::Green, FString::SanitizeFloat(DeltaTime));
+	AddInputVector(LateralVel.GetClampedToMaxSize(MovementSpeed));
+	LateralVel = FVector(0, 0, 0);
+	FVector DesiredMovementThisFrame = ConsumeInputVector() * DeltaTime;
+	DesiredMovementThisFrame += JumpVel * DeltaTime;
+	downVel += (Shadow ? UpdatedComponent->GetUpVector() : FVector::UpVector) * -30 * DeltaTime;
 	FHitResult outHit;
 	FVector Start = GetActorLocation();
 	FVector End = GetActorLocation() + UpdatedComponent->GetUpVector() * -100;
 	UCapsuleComponent* capsule = Cast<UCapsuleComponent>(UpdatedComponent);
 	if (capsule != nullptr) {
-		End = GetActorLocation() + UpdatedComponent->GetUpVector() * -1.5 * capsule->GetScaledCapsuleHalfHeight();
+		End = GetActorLocation() + UpdatedComponent->GetUpVector() * -1.25 * capsule->GetScaledCapsuleHalfHeight();
 
 	}
 	FCollisionQueryParams CollisionParams;
@@ -30,19 +31,16 @@ void UCustomMovement::TickComponent(float DeltaTime, enum ELevelTick TickType, F
 	bool isHit = GetWorld()->LineTraceSingleByChannel(outHit, Start, End, ECC_Visibility, CollisionParams);
 	if (isHit && outHit.bBlockingHit) {
 		float angle = FMath::Acos(FVector::DotProduct(UpdatedComponent->GetUpVector(), outHit.ImpactNormal));
-		//GEngine->AddOnScreenDebugMessage(-1, 0.2f, FColor::Yellow, FString::SanitizeFloat(angle * 180 / PI));
 		downVel = FVector(0, 0, 0);
 	}
 	DesiredMovementThisFrame += downVel;
 	if (!DesiredMovementThisFrame.IsNearlyZero())
 	{	
-		//FHitResult Hit = FHitResult(ForceInit);
 		SafeMoveUpdatedComponent(DesiredMovementThisFrame, UpdatedComponent->GetComponentRotation(), true, outHit);
 
 		// If we bumped into something, try to slide along it
 		if (outHit.IsValidBlockingHit())
 		{
-			//GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, "U SUCK");
 			SlideAlongSurface(DesiredMovementThisFrame, 1.f - outHit.Time, outHit.Normal, outHit);
 		}
 	}
