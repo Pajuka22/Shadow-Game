@@ -76,6 +76,9 @@ void AMyPawn::Tick(float DeltaTime)
 		EndJump = false;
 		MovementComp->JumpVel = FVector(0, 0, 0);
 	}
+	if (bBufferSprint) {
+		Sprint();
+	}
 	//GEngine->AddOnScreenDebugMessage(-1, DeltaTime, FColor::Yellow, CheckGrounded() ? "true" : "false");
 	GEngine->AddOnScreenDebugMessage(-1, DeltaTime, FColor::Red, FString::SanitizeFloat(currentHeight));
 	//GEngine->AddOnScreenDebugMessage(-1, DeltaTime, FColor::Green, GetActorLocation().ToString());
@@ -100,7 +103,7 @@ void AMyPawn::Tick(float DeltaTime)
 	if (!CheckGrounded() && ShadowSneak) {
 		StartEndSneak();
 	}
-	if (Cast<UCustomMovement>(MovementComp)) {
+	if (Cast<UCustomMovement>(MovementComp) && CheckGrounded()) {
 		if (ShadowSneak) {
 			MovementComp->MovementSpeed = SneakSpeed;
 		}
@@ -128,7 +131,7 @@ void AMyPawn::Tick(float DeltaTime)
 		FVector under;
 		FVector Start = GetActorLocation();
 		FVector End = Start + GetVelocity();
-		if (GetWorld()->LineTraceSingleByChannel(hitResultTrace, Start + GetActorUpVector() * 400.0f, Start - GetActorUpVector() * 2000.0f,
+		if (GetWorld()->LineTraceSingleByChannel(hitResultTrace, GetActorLocation(), GetActorLocation() - RootComponent->GetUpVector() * 100,
 			ECC_Visibility, queryParams))
 		{
 			if (hitResultTrace.GetComponent() != nullptr) {
@@ -234,19 +237,26 @@ void AMyPawn::StartEndSneak() {
 	MovementComp->Shadow = ShadowSneak;
 }
 void AMyPawn::Sprint() {
-	bSprint = true;
-	startHeight = currentHeight;
-	endHeight = normalHeight;
-	GetAddHeight();
-	if (ShadowSneak) {
-		StartEndSneak();
+	if (CheckGrounded()) {
+		bBufferSprint = false;
+		bSprint = true;
+		startHeight = currentHeight;
+		endHeight = normalHeight;
+		GetAddHeight();
+		if (ShadowSneak) {
+			StartEndSneak();
+		}
+		if (bCrouch) {
+			StopCrouching();
+		}
 	}
-	if (bCrouch) {
-		StopCrouching();
+	else {
+		bBufferSprint = true;
 	}
 }
 void AMyPawn::StopSprinting() {
 	bSprint = false;
+	bBufferSprint = false;
 }
 void AMyPawn::CrouchControl() {
 	if (bCrouch) {

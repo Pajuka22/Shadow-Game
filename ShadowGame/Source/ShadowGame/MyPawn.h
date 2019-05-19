@@ -64,6 +64,8 @@ public:
 	bool EndJump;
 	bool bCrouch;
 	bool bSprint;
+	bool bBufferSprint;
+	bool bBufferEndSprint;
 	FVector LateralMovement = FVector(0, 0, 0);
 	
 protected:
@@ -80,5 +82,6 @@ protected:
 	void CrouchControl();
 	void Crouch();
 	void StopCrouching();
+	void BufferEndCrouch();
 	void GetAddHeight();
 };
