@@ -80,6 +80,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	uint32 bUsingMotionControllers : 1;
 
+	void PStealth(FVector position, float intensity);
+	void SStealth(FVector spotlight, float inner, float outer, FRotator spotAngle, float lumens);
+	void DStealth(FRotator angle, float magnitude);
+
 protected:
 	
 	/** Fires a projectile. */

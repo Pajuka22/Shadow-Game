@@ -1,0 +1,41 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+#include "PLStealth.h"
+#include "Components/PointLightComponent.h"
+#include "Runtime/Engine/Classes/Engine/Scene.h"
+#include "Engine/World.h"
+#include "MyPawn.h"
+
+// Sets default values
+APLStealth::APLStealth()
+{
+ 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	PrimaryActorTick.bCanEverTick = true;
+	Source = CreateDefaultSubobject<UPointLightComponent>(TEXT("Source"));
+	Source->IntensityUnits = ELightUnits::Lumens;
+	Source->Intensity = 5000;
+
+}
+
+// Called when the game starts or when spawned
+void APLStealth::BeginPlay()
+{
+	Super::BeginPlay();
+	
+}
+
+// Called every frame
+void APLStealth::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	AMyPawn* Player = Cast<AMyPawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
+	if (HitLast) {
+		Player->AddVis(-value);
+	}
+	value = Player->PStealth(GetActorLocation(), Source->Intensity);
+	HitLast = value >= 0;
+	Player->AddVis(value);
+	GEngine->AddOnScreenDebugMessage(-1, DeltaTime, FColor::Red, FString::SanitizeFloat(Player->visibility));
+}
+

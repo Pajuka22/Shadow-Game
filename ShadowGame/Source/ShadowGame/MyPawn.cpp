@@ -310,3 +310,105 @@ bool AMyPawn::CheckGrounded() {
 void AMyPawn::GetAddHeight() {
 	addHeight = (endHeight - startHeight) / HeightInterpTime;
 }
+float AMyPawn::PStealth(FVector location, float lumens) {
+	float mult = 1;
+	FHitResult outHit;
+	FCollisionQueryParams CollisionParams;
+	FVector Start;
+	FVector End;
+	UCapsuleComponent* Capsule = Cast<UCapsuleComponent>(RootComponent);
+	if (Capsule != nullptr) {
+		float capsuleHeight = currentHeight;
+		float capsuleRadius = Capsule->GetScaledCapsuleRadius();
+		for (float f = -capsuleHeight; f <= capsuleHeight; f += capsuleHeight) {
+			Start = GetActorLocation() + FVector(0, 0, f);
+			End = location;
+			bool isHit = GetWorld()->LineTraceSingleByChannel(outHit, Start, End, ECC_Visibility, CollisionParams);
+			if (outHit.bBlockingHit) {
+				mult -= 0.2;
+			}
+			//DrawDebugLine(GetWorld(), Start, End, FColor::Green, false, 1, 0, 1);
+		}
+		for (float f = -capsuleRadius; f <= capsuleRadius; f += 2 * capsuleRadius) {
+			Start = RootComponent->GetRightVector() * f + GetActorLocation();
+			End = location;
+			bool isHit = GetWorld()->LineTraceSingleByChannel(outHit, Start, End, ECC_Visibility, CollisionParams);
+			if (outHit.bBlockingHit) {
+				mult -= 0.2;
+			}
+			//DrawDebugLine(GetWorld(), Start, End, FColor::Green, false, 1, 0, 1);
+		}
+		//for the top bottom, left, right, and center of the player, do a line check. If there's something in the way subtract 0.2 from the multiplier cuz 5 points
+		//if there's nothing in the don't do anything.
+	}
+	else {
+		mult = 0;
+	}
+	return FMath::Sqrt(lumens * 10000/ (4 * PI * FMath::Pow((GetActorLocation() - location).Size(), 2))) * mult;
+}
+float AMyPawn::SStealth(FVector spotlight, float inner, float outer, FRotator spotAngle, float lumens) {
+	float totalMult = 0;
+	float mult;
+	float value;
+	float totalValue = 0;
+	FVector vector = UKismetMathLibrary::CreateVectorFromYawPitch(spotAngle.Yaw, spotAngle.Pitch, 1.f);
+	FHitResult outHit;
+	FCollisionQueryParams CollisionParams;
+	FVector Start;
+	FVector End;
+	FVector LVector;
+	UCapsuleComponent* Capsule = Cast<UCapsuleComponent>(RootComponent);
+	if (Capsule != nullptr) {
+		float capsuleHeight = Capsule->GetScaledCapsuleHalfHeight();
+		float capsuleRadius = Capsule->GetScaledCapsuleRadius();
+		for (float f = -capsuleHeight; f <= capsuleHeight; f += capsuleHeight) {
+			Start = spotlight;
+			End = GetActorLocation();
+			LVector = Start - End;
+			float angle = -(acos((vector.X * LVector.X + vector.Y * LVector.Y + vector.Z * LVector.Z) / (vector.Size() * LVector.Size())) * 180 / PI - 180);
+			//DrawDebugLine(GetWorld(), Start, End, FColor::Green, false, 1, 0, 1);
+			if (angle <= outer && !outHit.bBlockingHit) {//if it is within the inner angle and there's nothing in the way
+				if (angle <= inner) {
+					mult = 0.2;//inner angle
+				}
+				else {
+					mult = 0.2 * (angle - outer) / (angle - inner);//outer angle.
+				}
+			}
+			else {
+				mult = 0;
+			}//if it is outside or there's something in the way
+			value = lumens / (4 * PI * LVector.Size() * angle / 360);//calculate lumens
+			totalValue += value;
+			totalMult += mult;
+		}
+		//GEngine->AddOnScreenDebugMessage(-1, .1f, FColor::Green, FString::SanitizeFloat(angle));
+		//DrawDebugLine(Get(), Start, End, FColor::Green, false, 1, 0, 1);
+		for (float f = -capsuleRadius; f <= capsuleRadius; f += 2 * capsuleRadius) {
+			Start = spotlight;
+			End = GetActorLocation();
+			LVector = Start - End;
+			float angle = -(acos((vector.X * LVector.X + vector.Y * LVector.Y + vector.Z * LVector.Z) / (vector.Size() * LVector.Size())) * 180 / PI - 180);
+			if (angle <= outer && !outHit.bBlockingHit) {
+				if (angle <= inner) {
+					mult = 0.2;
+				}
+				else {
+					mult = 0.2 * (angle - inner) / (angle - inner);
+				}
+			}
+			else {
+				mult = 0;
+			}
+			//DrawDebugLine(GetWorld(), Start, End, FColor::Green, false, 1, 0, 1);
+			value = lumens / (4 * PI * LVector.Size() * angle / 360);
+			totalValue += value;
+			totalMult += mult;
+		}
+		//GEngine->AddOnScreenDebugMessage(-1, .1f, FColor::Green, FString::SanitizeFloat(angle));
+	}
+	return totalValue;
+}
+void AMyPawn::AddVis(float value) {
+	visibility += value;
+}

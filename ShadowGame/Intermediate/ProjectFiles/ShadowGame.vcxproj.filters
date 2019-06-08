@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ShadowGame.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{86E78610-6D19-44D7-B7A3-6A431574AC93}</UniqueIdentifier>
+      <UniqueIdentifier>{DB412FAE-C08E-4D46-8CF2-345D7D5CF443}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ShadowGame.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{2DFDFABB-2896-4D35-9D9B-B640C08F19B7}</UniqueIdentifier>
+      <UniqueIdentifier>{41351E3E-1547-4445-ABA1-8B6AC1C50E57}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,8 +30,26 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\ShadowGame">
-      <UniqueIdentifier>{7FD63000-3C52-47AE-BD1A-551185D49BE9}</UniqueIdentifier>
+      <UniqueIdentifier>{2A82741B-2351-45C1-A410-707E2173ECDB}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\ShadowGame\CustomMovement.cpp">
+      <Filter>Source\ShadowGame</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ShadowGame\CustomMovement.h">
+      <Filter>Source\ShadowGame</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ShadowGame\MyPawn.cpp">
+      <Filter>Source\ShadowGame</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ShadowGame\MyPawn.h">
+      <Filter>Source\ShadowGame</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ShadowGame\Point_Stealth.cpp">
+      <Filter>Source\ShadowGame</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ShadowGame\Point_Stealth.h">
+      <Filter>Source\ShadowGame</Filter>
+    </ClInclude>
     <None Include="..\..\Source\ShadowGame\ShadowGame.Build.cs">
       <Filter>Source\ShadowGame</Filter>
     </None>
@@ -67,42 +85,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\ShadowGame\MyPawn.h">
-      <Filter>Source\ShadowGame</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\ShadowGame\CustomCharMove.h">
-      <Filter>Source\ShadowGame</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\ShadowGame\CustomMovement.h">
-      <Filter>Source\ShadowGame</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\ShadowGame\ControlledAttempt.h">
-      <Filter>Source\ShadowGame</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\ShadowGame\CollidingPawn.h">
-      <Filter>Source\ShadowGame</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\ShadowGame\CollidingPawnMovementComponent.h">
+    <ClInclude Include="..\..\Source\ShadowGame\PLStealth.h">
       <Filter>Source\ShadowGame</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\ShadowGame\MyPawn.cpp">
-      <Filter>Source\ShadowGame</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ShadowGame\CustomCharMove.cpp">
-      <Filter>Source\ShadowGame</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ShadowGame\CustomMovement.cpp">
-      <Filter>Source\ShadowGame</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ShadowGame\ControlledAttempt.cpp">
-      <Filter>Source\ShadowGame</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ShadowGame\CollidingPawn.cpp">
-      <Filter>Source\ShadowGame</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ShadowGame\CollidingPawnMovementComponent.cpp">
+    <ClCompile Include="..\..\Source\ShadowGame\PLStealth.cpp">
       <Filter>Source\ShadowGame</Filter>
     </ClCompile>
   </ItemGroup>

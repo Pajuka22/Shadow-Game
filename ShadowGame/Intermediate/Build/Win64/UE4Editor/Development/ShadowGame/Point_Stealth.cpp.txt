@@ -1,0 +1,3 @@
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Development\ShadowGame\Definitions.ShadowGame.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\Point_Stealth.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Inc\ShadowGame\Point_Stealth.generated.h
