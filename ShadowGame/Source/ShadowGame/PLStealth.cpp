@@ -33,9 +33,9 @@ void APLStealth::Tick(float DeltaTime)
 	if (HitLast) {
 		Player->AddVis(-value);
 	}
-	value = Player->PStealth(GetActorLocation(), Source->Intensity);
+	value = Player->PStealth(GetActorLocation(), Source->AttenuationRadius, Source->Intensity);
 	HitLast = value >= 0;
 	Player->AddVis(value);
-	GEngine->AddOnScreenDebugMessage(-1, DeltaTime, FColor::Red, FString::SanitizeFloat(Player->visibility));
+	
 }
 

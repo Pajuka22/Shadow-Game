@@ -88,9 +88,15 @@
     <ClInclude Include="..\..\Source\ShadowGame\PLStealth.h">
       <Filter>Source\ShadowGame</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\ShadowGame\SLStealth.h">
+      <Filter>Source\ShadowGame</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\ShadowGame\PLStealth.cpp">
+      <Filter>Source\ShadowGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ShadowGame\SLStealth.cpp">
       <Filter>Source\ShadowGame</Filter>
     </ClCompile>
   </ItemGroup>

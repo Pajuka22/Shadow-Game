@@ -364,6 +364,8 @@
     <NMakeOutput>..\..\Binaries\HTML5\ShadowGame-HTML5-Shipping.js</NMakeOutput>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\ShadowGame\SLStealth.cpp" />
+    <ClInclude Include="..\..\Source\ShadowGame\SLStealth.h" />
     <None Include="..\..\ShadowGame.uproject" />
     <None Include="..\..\Source\ShadowGame.Target.cs" />
     <None Include="..\..\Source\ShadowGameEditor.Target.cs" />

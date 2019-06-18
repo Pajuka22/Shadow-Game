@@ -86,6 +86,7 @@ void AMyPawn::Tick(float DeltaTime)
 	GEngine->AddOnScreenDebugMessage(-1, DeltaTime, FColor::Green, bCrouch ? "true" : "false");
 	GEngine->AddOnScreenDebugMessage(-1, DeltaTime, FColor::Blue, bSprint ? "true" : "false");
 	GEngine->AddOnScreenDebugMessage(-1, DeltaTime, FColor::Yellow, FString::SanitizeFloat(endHeight));
+	GEngine->AddOnScreenDebugMessage(-1, DeltaTime, FColor::Red, FString::SanitizeFloat(FMath::Sqrt(visibility)));
 	UCapsuleComponent* Capsule = Cast<UCapsuleComponent>(RootComponent);
 	if (Capsule != nullptr && currentHeight != endHeight) {
 		currentHeight += addHeight * DeltaTime;
@@ -310,14 +311,14 @@ bool AMyPawn::CheckGrounded() {
 void AMyPawn::GetAddHeight() {
 	addHeight = (endHeight - startHeight) / HeightInterpTime;
 }
-float AMyPawn::PStealth(FVector location, float lumens) {
+float AMyPawn::PStealth(FVector location, float Attenuation, float lumens) {
 	float mult = 1;
 	FHitResult outHit;
 	FCollisionQueryParams CollisionParams;
 	FVector Start;
 	FVector End;
 	UCapsuleComponent* Capsule = Cast<UCapsuleComponent>(RootComponent);
-	if (Capsule != nullptr) {
+	if (Capsule != nullptr && (GetActorLocation() - location).Size() <= Attenuation) {
 		float capsuleHeight = currentHeight;
 		float capsuleRadius = Capsule->GetScaledCapsuleRadius();
 		for (float f = -capsuleHeight; f <= capsuleHeight; f += capsuleHeight) {
@@ -344,70 +345,59 @@ float AMyPawn::PStealth(FVector location, float lumens) {
 	else {
 		mult = 0;
 	}
-	return FMath::Sqrt(lumens * 10000/ (4 * PI * FMath::Pow((GetActorLocation() - location).Size(), 2))) * mult;
+	return (lumens * 10000/ (4 * PI * FMath::Pow((GetActorLocation() - location).Size(), 2))) * mult;
 }
-float AMyPawn::SStealth(FVector spotlight, float inner, float outer, FRotator spotAngle, float lumens) {
-	float totalMult = 0;
-	float mult;
-	float value;
-	float totalValue = 0;
-	FVector vector = UKismetMathLibrary::CreateVectorFromYawPitch(spotAngle.Yaw, spotAngle.Pitch, 1.f);
-	FHitResult outHit;
-	FCollisionQueryParams CollisionParams;
-	FVector Start;
+float AMyPawn::SStealth(FVector Spotlight, float inner, float outer, float Attenuation, FVector SpotAngle, float lumens) {
+	float value = 0;
+	float mult = 0;
+	float angle;
 	FVector End;
-	FVector LVector;
+	FHitResult outHit;
+	FCollisionQueryParams params;
+	params.AddIgnoredActor(this);
 	UCapsuleComponent* Capsule = Cast<UCapsuleComponent>(RootComponent);
 	if (Capsule != nullptr) {
-		float capsuleHeight = Capsule->GetScaledCapsuleHalfHeight();
-		float capsuleRadius = Capsule->GetScaledCapsuleRadius();
-		for (float f = -capsuleHeight; f <= capsuleHeight; f += capsuleHeight) {
-			Start = spotlight;
-			End = GetActorLocation();
-			LVector = Start - End;
-			float angle = -(acos((vector.X * LVector.X + vector.Y * LVector.Y + vector.Z * LVector.Z) / (vector.Size() * LVector.Size())) * 180 / PI - 180);
-			//DrawDebugLine(GetWorld(), Start, End, FColor::Green, false, 1, 0, 1);
-			if (angle <= outer && !outHit.bBlockingHit) {//if it is within the inner angle and there's nothing in the way
-				if (angle <= inner) {
-					mult = 0.2;//inner angle
-				}
-				else {
-					mult = 0.2 * (angle - outer) / (angle - inner);//outer angle.
-				}
-			}
-			else {
-				mult = 0;
-			}//if it is outside or there's something in the way
-			value = lumens / (4 * PI * LVector.Size() * angle / 360);//calculate lumens
-			totalValue += value;
-			totalMult += mult;
-		}
-		//GEngine->AddOnScreenDebugMessage(-1, .1f, FColor::Green, FString::SanitizeFloat(angle));
-		//DrawDebugLine(Get(), Start, End, FColor::Green, false, 1, 0, 1);
-		for (float f = -capsuleRadius; f <= capsuleRadius; f += 2 * capsuleRadius) {
-			Start = spotlight;
-			End = GetActorLocation();
-			LVector = Start - End;
-			float angle = -(acos((vector.X * LVector.X + vector.Y * LVector.Y + vector.Z * LVector.Z) / (vector.Size() * LVector.Size())) * 180 / PI - 180);
-			if (angle <= outer && !outHit.bBlockingHit) {
+		float halfHeight = Capsule->GetScaledCapsuleHalfHeight();
+		float radius = Capsule->GetScaledCapsuleRadius();
+		for (float f = -radius; f < radius; f += radius) {
+			End = GetActorLocation() + GetActorRightVector() * f;
+			angle = FMath::Acos(FVector::DotProduct(SpotAngle, (End - Spotlight))/(SpotAngle.Size() * (End - Spotlight).Size())) * 180/PI;
+			GetWorld()->LineTraceSingleByChannel(outHit, Spotlight, End, ECC_Visibility, params);
+			if (!outHit.bBlockingHit && angle <= outer && (End - Spotlight).Size() < Attenuation) {
 				if (angle <= inner) {
 					mult = 0.2;
 				}
 				else {
-					mult = 0.2 * (angle - inner) / (angle - inner);
+					mult = (outer - angle) / (outer - inner) * 0.2;
 				}
 			}
 			else {
 				mult = 0;
 			}
-			//DrawDebugLine(GetWorld(), Start, End, FColor::Green, false, 1, 0, 1);
-			value = lumens / (4 * PI * LVector.Size() * angle / 360);
-			totalValue += value;
-			totalMult += mult;
+			value += (lumens * 10000 / (4 * PI * FMath::Pow((GetActorLocation() - Spotlight).Size(), 2))) * mult * 360 / inner;
 		}
-		//GEngine->AddOnScreenDebugMessage(-1, .1f, FColor::Green, FString::SanitizeFloat(angle));
+		for (float f = -halfHeight; f < radius; f += 2 * halfHeight) {
+			End = GetActorLocation() + GetActorUpVector() * f;
+			angle = FMath::Acos(FVector::DotProduct(SpotAngle, (End - Spotlight)) / (SpotAngle.Size() * (End - Spotlight).Size())) * 180 / PI;
+			GetWorld()->LineTraceSingleByChannel(outHit, Spotlight, End, ECC_Visibility, params);
+			if (!outHit.bBlockingHit && angle <= outer && (End - Spotlight).Size() < Attenuation) {
+				if (angle <= inner) {
+					mult = 0.2;
+				}
+				else {
+					mult = (outer - angle) / (outer - inner) * 0.2;
+				}
+			}
+			else {
+				mult = 0;
+			}
+			value += (lumens * 10000 / (4 * PI * FMath::Pow((GetActorLocation() - Spotlight).Size(), 2))) * mult * 360 / inner;
+		}
 	}
-	return totalValue;
+	else {
+		mult = 0;
+	}
+	return value;
 }
 void AMyPawn::AddVis(float value) {
 	visibility += value;
