@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ShadowGame.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{DB412FAE-C08E-4D46-8CF2-345D7D5CF443}</UniqueIdentifier>
+      <UniqueIdentifier>{5B01FABE-7C99-41BB-A963-BA6477801B44}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ShadowGame.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{41351E3E-1547-4445-ABA1-8B6AC1C50E57}</UniqueIdentifier>
+      <UniqueIdentifier>{3A0A0291-44A0-4C0E-ABB8-C83F1E04595A}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,7 +30,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\ShadowGame">
-      <UniqueIdentifier>{2A82741B-2351-45C1-A410-707E2173ECDB}</UniqueIdentifier>
+      <UniqueIdentifier>{28674BBF-FA3D-4FEA-99CF-9DE10BBA7937}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ShadowGame\CustomMovement.cpp">
       <Filter>Source\ShadowGame</Filter>
@@ -38,10 +38,22 @@
     <ClInclude Include="..\..\Source\ShadowGame\CustomMovement.h">
       <Filter>Source\ShadowGame</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\ShadowGame\DLStealth.cpp">
+      <Filter>Source\ShadowGame</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ShadowGame\DLStealth.h">
+      <Filter>Source\ShadowGame</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\ShadowGame\MyPawn.cpp">
       <Filter>Source\ShadowGame</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\ShadowGame\MyPawn.h">
+      <Filter>Source\ShadowGame</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ShadowGame\PLStealth.cpp">
+      <Filter>Source\ShadowGame</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ShadowGame\PLStealth.h">
       <Filter>Source\ShadowGame</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\ShadowGame\Point_Stealth.cpp">
@@ -83,21 +95,11 @@
     <ClInclude Include="..\..\Source\ShadowGame\ShadowGameProjectile.h">
       <Filter>Source\ShadowGame</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Source\ShadowGame\PLStealth.h">
-      <Filter>Source\ShadowGame</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\ShadowGame\SLStealth.h">
-      <Filter>Source\ShadowGame</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Source\ShadowGame\PLStealth.cpp">
-      <Filter>Source\ShadowGame</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\ShadowGame\SLStealth.cpp">
       <Filter>Source\ShadowGame</Filter>
     </ClCompile>
+    <ClInclude Include="..\..\Source\ShadowGame\SLStealth.h">
+      <Filter>Source\ShadowGame</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

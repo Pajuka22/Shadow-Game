@@ -69,7 +69,7 @@ public:
 	FVector LateralMovement = FVector(0, 0, 0);
 	float PStealth(FVector position, float attenuation, float intensity);
 	float SStealth(FVector spotlight, float inner, float outer, float Attenuation, FVector spotAngle, float lumens);
-	float  DStealth(FRotator angle, float magnitude);
+	float  DStealth(FVector angle, float magnitude, float length);
 	void AddVis(float value);
 	float visibility;
 

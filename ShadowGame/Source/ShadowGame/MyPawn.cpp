@@ -322,7 +322,7 @@ float AMyPawn::PStealth(FVector location, float Attenuation, float lumens) {
 		float capsuleHeight = currentHeight;
 		float capsuleRadius = Capsule->GetScaledCapsuleRadius();
 		for (float f = -capsuleHeight; f <= capsuleHeight; f += capsuleHeight) {
-			Start = GetActorLocation() + FVector(0, 0, f);
+			Start = GetActorLocation() + f * RootComponent->GetUpVector();
 			End = location;
 			bool isHit = GetWorld()->LineTraceSingleByChannel(outHit, Start, End, ECC_Visibility, CollisionParams);
 			if (outHit.bBlockingHit) {
@@ -359,7 +359,7 @@ float AMyPawn::SStealth(FVector Spotlight, float inner, float outer, float Atten
 	if (Capsule != nullptr) {
 		float halfHeight = Capsule->GetScaledCapsuleHalfHeight();
 		float radius = Capsule->GetScaledCapsuleRadius();
-		for (float f = -radius; f < radius; f += radius) {
+		for (float f = -radius; f <= radius; f += radius) {
 			End = GetActorLocation() + GetActorRightVector() * f;
 			angle = FMath::Acos(FVector::DotProduct(SpotAngle, (End - Spotlight))/(SpotAngle.Size() * (End - Spotlight).Size())) * 180/PI;
 			GetWorld()->LineTraceSingleByChannel(outHit, Spotlight, End, ECC_Visibility, params);
@@ -376,7 +376,7 @@ float AMyPawn::SStealth(FVector Spotlight, float inner, float outer, float Atten
 			}
 			value += (lumens * 10000 / (4 * PI * FMath::Pow((GetActorLocation() - Spotlight).Size(), 2))) * mult * 360 / inner;
 		}
-		for (float f = -halfHeight; f < radius; f += 2 * halfHeight) {
+		for (float f = -halfHeight; f <= halfHeight; f += 2 * halfHeight) {
 			End = GetActorLocation() + GetActorUpVector() * f;
 			angle = FMath::Acos(FVector::DotProduct(SpotAngle, (End - Spotlight)) / (SpotAngle.Size() * (End - Spotlight).Size())) * 180 / PI;
 			GetWorld()->LineTraceSingleByChannel(outHit, Spotlight, End, ECC_Visibility, params);
@@ -398,6 +398,36 @@ float AMyPawn::SStealth(FVector Spotlight, float inner, float outer, float Atten
 		mult = 0;
 	}
 	return value;
+}
+float AMyPawn::DStealth(FVector Direction, float intensity, float length) {
+	float mult = 0;
+	UCapsuleComponent* Capsule = Cast<UCapsuleComponent>(RootComponent);
+	FVector End;
+	FVector Start;
+	FHitResult OutHit;
+	FCollisionQueryParams params;
+	params.AddIgnoredActor(this);
+	if (Capsule != nullptr) {
+		float Radius = Capsule->GetScaledCapsuleRadius();
+		float HalfHeight = Capsule->GetScaledCapsuleHalfHeight();
+		for (float i = -Radius; i <= Radius; i += Radius) {
+			Start = GetActorLocation() + RootComponent->GetRightVector() * i;
+			End = Start - Direction * length;
+			GetWorld()->LineTraceSingleByChannel(OutHit, Start, End, ECC_Visibility, params);
+			if (!OutHit.bBlockingHit) {
+				mult += 0.2;
+			}
+		}
+		for (float j = -HalfHeight; j <= HalfHeight; j += 2 * HalfHeight) {
+			Start = GetActorLocation() + RootComponent->GetUpVector() * j;
+			End = Start - Direction * length;
+			GetWorld()->LineTraceSingleByChannel(OutHit, Start, End, ECC_Visibility, params);
+			if (!OutHit.bBlockingHit) {
+				mult += 0.2;
+			}
+		}
+	}
+	return FMath::Square(mult * intensity);
 }
 void AMyPawn::AddVis(float value) {
 	visibility += value;
