@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "MyPawn.h"
 #include "SLStealth.generated.h"
 
 UCLASS()
@@ -24,7 +25,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	bool HitLast = false;
-	float value;
+	AMyPawn::Visibility value;
 
 public:	
 	// Called every frame

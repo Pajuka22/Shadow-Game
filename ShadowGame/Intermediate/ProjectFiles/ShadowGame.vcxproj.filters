@@ -56,12 +56,6 @@
     <ClInclude Include="..\..\Source\ShadowGame\PLStealth.h">
       <Filter>Source\ShadowGame</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\ShadowGame\Point_Stealth.cpp">
-      <Filter>Source\ShadowGame</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\ShadowGame\Point_Stealth.h">
-      <Filter>Source\ShadowGame</Filter>
-    </ClInclude>
     <None Include="..\..\Source\ShadowGame\ShadowGame.Build.cs">
       <Filter>Source\ShadowGame</Filter>
     </None>

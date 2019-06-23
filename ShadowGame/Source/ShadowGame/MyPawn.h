@@ -67,12 +67,19 @@ public:
 	bool bBufferSprint;
 	bool bBufferEndSprint;
 	FVector LateralMovement = FVector(0, 0, 0);
-	float PStealth(FVector position, float attenuation, float intensity);
-	float SStealth(FVector spotlight, float inner, float outer, float Attenuation, FVector spotAngle, float lumens);
-	float  DStealth(FVector angle, float magnitude, float length);
-	void AddVis(float value);
 	float visibility;
+	struct Visibility{
+		float Vis;
+		float GroundVis;
+	};
+	
+	Visibility  DStealth(FVector angle, float magnitude, float length);
+	Visibility SStealth(FVector spotlight, float inner, float outer, float Attenuation, FVector spotAngle, float lumens);
+	Visibility PStealth(FVector position, float attenuation, float intensity);
 
+	Visibility MyVis;
+	void AddVis(Visibility vis);
+	void SubVis(Visibility vis);
 protected:
 	void MoveForward(float Val);
 	void MoveRight(float Val);

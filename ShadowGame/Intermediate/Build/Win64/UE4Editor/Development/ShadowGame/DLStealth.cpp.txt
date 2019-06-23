@@ -1,5 +1,7 @@
 C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Development\ShadowGame\Definitions.ShadowGame.h
 C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\DLStealth.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\MyPawn.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Inc\ShadowGame\MyPawn.generated.h
 C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Inc\ShadowGame\DLStealth.generated.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime/Engine/Classes/Components/DirectionalLightComponent.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\Components/LightComponent.h
@@ -7,5 +9,3 @@ C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\Compone
 C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\LightComponentBase.generated.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\LightComponent.generated.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DirectionalLightComponent.generated.h
-C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\MyPawn.h
-C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Inc\ShadowGame\MyPawn.generated.h

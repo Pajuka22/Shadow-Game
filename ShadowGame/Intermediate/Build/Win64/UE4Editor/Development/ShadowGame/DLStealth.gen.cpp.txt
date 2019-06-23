@@ -2,4 +2,6 @@ C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
 C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame/DLStealth.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\MyPawn.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Inc\ShadowGame\MyPawn.generated.h
 C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Inc\ShadowGame\DLStealth.generated.h

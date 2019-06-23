@@ -31,10 +31,10 @@ void APLStealth::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	AMyPawn* Player = Cast<AMyPawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
 	if (HitLast) {
-		Player->AddVis(-value);
+		Player->SubVis(value);
 	}
 	value = Player->PStealth(GetActorLocation(), Source->AttenuationRadius, Source->Intensity);
-	HitLast = value >= 0;
+	HitLast = value.Vis >= 0;
 	Player->AddVis(value);
 	
 }

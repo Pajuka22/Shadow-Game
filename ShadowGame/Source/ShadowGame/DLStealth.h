@@ -4,8 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "MyPawn.h"
 #include "DLStealth.generated.h"
-
 UCLASS()
 class SHADOWGAME_API ADLStealth : public AActor
 {
@@ -23,7 +23,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	bool HitLast = false;
-	float value = 0;
+	AMyPawn::Visibility value;
 
 public:	
 	// Called every frame

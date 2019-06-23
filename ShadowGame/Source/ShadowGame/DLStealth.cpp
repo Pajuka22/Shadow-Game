@@ -30,10 +30,10 @@ void ADLStealth::Tick(float DeltaTime)
 	Player = Cast<AMyPawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
 	if (Player != nullptr) {
 		if (HitLast) {
-			Player->AddVis(-value);
+			Player->SubVis(value);
 		}
 		value = Player->DStealth(GetActorForwardVector(), Source->Intensity, 5000);
-		HitLast = value >= 0;
+		HitLast = value.Vis >= 0;
 		Player->AddVis(value);
 	}
 }

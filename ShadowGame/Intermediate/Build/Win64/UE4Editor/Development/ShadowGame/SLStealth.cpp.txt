@@ -1,5 +1,7 @@
 C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Development\ShadowGame\Definitions.ShadowGame.h
 C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\SLStealth.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\MyPawn.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Inc\ShadowGame\MyPawn.generated.h
 C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Inc\ShadowGame\SLStealth.generated.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime/Engine/Classes/Components/SpotLightComponent.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\Components/PointLightComponent.h
@@ -11,5 +13,3 @@ C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\In
 C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\LocalLightComponent.generated.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PointLightComponent.generated.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SpotLightComponent.generated.h
-C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\MyPawn.h
-C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Intermediate\Build\Win64\UE4Editor\Inc\ShadowGame\MyPawn.generated.h
