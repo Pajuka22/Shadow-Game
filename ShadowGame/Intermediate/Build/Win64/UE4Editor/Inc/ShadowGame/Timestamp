@@ -2,8 +2,18 @@ C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\CustomM
 C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\DLStealth.h
 C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\MyPawn.h
 C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\PLStealth.h
+<<<<<<< HEAD
 C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\ShadowGameGameMode.h
 C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\ShadowGameCharacter.h
 C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\SLStealth.h
 C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\ShadowGameHUD.h
 C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\ShadowGameProjectile.h
+=======
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\Point_Stealth.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\ShadowGameGameMode.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\ShadowGameHUD.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\ShadowGameProjectile.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\SLStealth.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\MyPawn.h
+C:\Users\nebul\Documents\GitHub\Shadow-Game\ShadowGame\Source\ShadowGame\ShadowGameCharacter.h
+>>>>>>> parent of 40df036... directional lights

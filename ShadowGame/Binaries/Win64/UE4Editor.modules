@@ -2,6 +2,10 @@
 	"BuildId": "5660361",
 	"Modules": 
 	{
+<<<<<<< HEAD
 		"ShadowGame": "UE4Editor-ShadowGame-0070.dll"
+=======
+		"ShadowGame": "UE4Editor-ShadowGame-8181.dll"
+>>>>>>> parent of 40df036... directional lights
 	}
 }

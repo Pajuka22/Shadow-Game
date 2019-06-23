@@ -67,6 +67,13 @@ public:
 	bool bBufferSprint;
 	bool bBufferEndSprint;
 	FVector LateralMovement = FVector(0, 0, 0);
+<<<<<<< HEAD
+=======
+	float PStealth(FVector position, float attenuation, float intensity);
+	float SStealth(FVector spotlight, float inner, float outer, float Attenuation, FVector spotAngle, float lumens);
+	float  DStealth(FRotator angle, float magnitude);
+	void AddVis(float value);
+>>>>>>> parent of 40df036... directional lights
 	float visibility;
 	struct Visibility{
 		float Vis;

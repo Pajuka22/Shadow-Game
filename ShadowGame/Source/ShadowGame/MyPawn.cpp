@@ -327,7 +327,7 @@ AMyPawn::Visibility AMyPawn::PStealth(FVector location, float Attenuation, float
 		float capsuleHeight = currentHeight;
 		float capsuleRadius = Capsule->GetScaledCapsuleRadius();
 		for (float f = -capsuleHeight; f <= capsuleHeight; f += capsuleHeight) {
-			Start = GetActorLocation() + f * RootComponent->GetUpVector();
+			Start = GetActorLocation() + FVector(0, 0, f);
 			End = location;
 			bool isHit = GetWorld()->LineTraceSingleByChannel(outHit, Start, End, ECC_Visibility, CollisionParams);
 			if (!outHit.bBlockingHit) {
@@ -371,7 +371,7 @@ AMyPawn::Visibility AMyPawn::SStealth(FVector Spotlight, float inner, float oute
 	if (Capsule != nullptr) {
 		float halfHeight = Capsule->GetScaledCapsuleHalfHeight();
 		float radius = Capsule->GetScaledCapsuleRadius();
-		for (float f = -radius; f <= radius; f += radius) {
+		for (float f = -radius; f < radius; f += radius) {
 			End = GetActorLocation() + GetActorRightVector() * f;
 			angle = FMath::Acos(FVector::DotProduct(SpotAngle, (End - Spotlight)) / (SpotAngle.Size() * (End - Spotlight).Size())) * 180 / PI;
 			GetWorld()->LineTraceSingleByChannel(outHit, Spotlight, End, ECC_Visibility, params);
@@ -388,7 +388,7 @@ AMyPawn::Visibility AMyPawn::SStealth(FVector Spotlight, float inner, float oute
 			}
 			ReturnVis.Vis += (lumens * 10000 / (4 * PI * FMath::Pow((GetActorLocation() - Spotlight).Size(), 2))) * mult * 360 / inner;
 		}
-		for (float f = -halfHeight; f <= halfHeight; f += 2 * halfHeight) {
+		for (float f = -halfHeight; f < radius; f += 2 * halfHeight) {
 			End = GetActorLocation() + GetActorUpVector() * f;
 			angle = FMath::Acos(FVector::DotProduct(SpotAngle, (End - Spotlight)) / (SpotAngle.Size() * (End - Spotlight).Size())) * 180 / PI;
 			GetWorld()->LineTraceSingleByChannel(outHit, Spotlight, End, ECC_Visibility, params);
@@ -415,6 +415,7 @@ AMyPawn::Visibility AMyPawn::SStealth(FVector Spotlight, float inner, float oute
 	}
 	return ReturnVis;
 }
+<<<<<<< HEAD
 AMyPawn::Visibility AMyPawn::DStealth(FVector Direction, float intensity, float length) {
 	Visibility ReturnVis;
 	float mult = 0;
@@ -457,5 +458,9 @@ void AMyPawn::AddVis(Visibility vis) {
 void AMyPawn::SubVis(Visibility vis) {
 	MyVis.Vis -= vis.Vis;
 	MyVis.GroundVis -= vis.GroundVis;
+=======
+void AMyPawn::AddVis(float value) {
+	visibility += value;
+>>>>>>> parent of 40df036... directional lights
 }
 
